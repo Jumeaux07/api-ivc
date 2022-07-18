@@ -1,0 +1,400 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Api-IvoireCouture",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/clients": {
+            "get": {
+                "tags": [
+                    "clients"
+                ],
+                "summary": "list des clients",
+                "description": "Obtenir la liste de tous les clients",
+                "operationId": "client_list",
+                "responses": {
+                    "200": {
+                        "description": "Afficher la liste de tous les clients"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "clients"
+                ],
+                "summary": "Créer un client",
+                "description": "Création d'un client",
+                "operationId": "clients",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "sexe": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "nom": "Kouadio",
+                                    "phone": "0102030405",
+                                    "image": "lien de l'image",
+                                    "sexe": "h"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Exception"
+                    }
+                }
+            }
+        },
+        "/api/clients/{id}": {
+            "get": {
+                "tags": [
+                    "clients"
+                ],
+                "summary": "Obtenir un seul client",
+                "description": "Obtenir un seul client",
+                "operationId": "one_client",
+                "responses": {
+                    "200": {
+                        "description": "Afficher un seul client"
+                    },
+                    "404": {
+                        "description": "Utilisateur intouvable ou inexistant"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "clients"
+                ],
+                "summary": "Mise à jour d'un client",
+                "description": "Mise à jour des données d'un client",
+                "operationId": "update_clients",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "sexe": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "nom": "Kouadio",
+                                    "phone": "0102030405",
+                                    "image": "lien modifié",
+                                    "sexe": "f"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "405": {
+                        "description": "Exception"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "clients"
+                ],
+                "summary": "Supprimer un client",
+                "description": "Supprimer un client",
+                "operationId": "delete_client",
+                "responses": {
+                    "200": {
+                        "description": "Supprime un seul client"
+                    },
+                    "404": {
+                        "description": "client intouvable ou inexistant"
+                    }
+                }
+            }
+        },
+        "/api/login_user": {
+            "post": {
+                "tags": [
+                    "utilisateurs"
+                ],
+                "summary": "Connexion",
+                "description": "Connexion d'un utilisateur",
+                "operationId": "login_user",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "phone": "0505206604",
+                                    "password": "12345678X"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Aucun compte n'est associé à ce numéro"
+                    },
+                    "405": {
+                        "description": "Exception"
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "utilisateurs"
+                ],
+                "summary": "list des utilisateurs",
+                "description": "Obtenir la liste de tous les utilisateurs",
+                "operationId": "user_list",
+                "responses": {
+                    "200": {
+                        "description": "Afficher la liste de tous les utilisateurs"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "utilisateurs"
+                ],
+                "summary": "Inscription",
+                "description": "Création d'un utilisateur",
+                "operationId": "users",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "type": "string"
+                                    },
+                                    "prenoms": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "nom_atelier": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "nom": "Kouadio",
+                                    "prenoms": "Hervé",
+                                    "phone": "0102030405",
+                                    "email": "kouadio@gmail.com",
+                                    "nom_atelier": "KBCouture",
+                                    "password": "12345678X",
+                                    "password_confirmation": "12345678X"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Exception"
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "tags": [
+                    "utilisateurs"
+                ],
+                "summary": "Obtenir un seul utilisateur",
+                "description": "Obtenir un seul utilisateur",
+                "operationId": "one_user",
+                "responses": {
+                    "200": {
+                        "description": "Afficher un seul utilisateur"
+                    },
+                    "404": {
+                        "description": "Utilisateur intouvable ou inexistant"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "utilisateurs"
+                ],
+                "summary": "Mise à jour d'un utilisateur",
+                "description": "Mise à jour des données d'un utilisateur",
+                "operationId": "update_users",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "type": "string"
+                                    },
+                                    "prenoms": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "nom_atelier": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "nom": "Kouadio",
+                                    "prenoms": "Hervé",
+                                    "phone": "0102030405",
+                                    "nom_atelier": "KBCouture"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "405": {
+                        "description": "Exception"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "utilisateurs"
+                ],
+                "summary": "Supprimer un utilisateur",
+                "description": "Supprimer un utilisateur",
+                "operationId": "delete_user",
+                "responses": {
+                    "200": {
+                        "description": "Supprime un seul utilisateur"
+                    },
+                    "404": {
+                        "description": "Utilisateur intouvable ou inexistant"
+                    }
+                }
+            }
+        }
+    }
+}
