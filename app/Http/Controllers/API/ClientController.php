@@ -158,7 +158,7 @@ class ClientController extends Controller
      *         ),
      *     @OA\Response(
      *          response="404",
-     *          description="Utilisateur intouvable ou inexistant"
+     *          description="Client intouvable ou inexistant"
      *         ),
      * )
      */

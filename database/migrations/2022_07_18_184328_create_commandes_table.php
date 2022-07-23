@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
+            $table->string('numero');
+            $table->string('model');
+            $table->string('description')->nullable();
+            $table->string('mesure');
+            $table->date('delais')->format('d/m/Y');
+            $table->integer('total');
+            $table->integer('reste');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

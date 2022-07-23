@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\ClientController;
+use App\Http\Controllers\API\CommandeController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,5 @@ Route::post('login_user',[UserController::class,'login_user']);
 Route::resource('users',UserController::class);
 //CRUD CLIENTS
 Route::resource('clients',ClientController::class);
+//CRUD COMMANDES
+Route::resource('commandes',CommandeController::class);

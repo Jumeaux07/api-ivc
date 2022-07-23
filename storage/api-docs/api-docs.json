@@ -85,7 +85,7 @@
                         "description": "Afficher un seul client"
                     },
                     "404": {
-                        "description": "Utilisateur intouvable ou inexistant"
+                        "description": "Client intouvable ou inexistant"
                     }
                 }
             },
@@ -157,6 +157,107 @@
                     },
                     "404": {
                         "description": "client intouvable ou inexistant"
+                    }
+                }
+            }
+        },
+        "/api/commandes": {
+            "get": {
+                "tags": [
+                    "commandes"
+                ],
+                "summary": "liste des commandes",
+                "description": "Obtenir la liste de toutes les commandes",
+                "operationId": "commande_list",
+                "responses": {
+                    "200": {
+                        "description": "Afficher la liste de toutes les commandes"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "commandes"
+                ],
+                "summary": "Créer une commande",
+                "description": "Création d'une commande",
+                "operationId": "commandes",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "model": {
+                                        "type": "string"
+                                    },
+                                    "mesure": {
+                                        "type": "string"
+                                    },
+                                    "delais": {
+                                        "type": "string"
+                                    },
+                                    "total": {
+                                        "type": "string"
+                                    },
+                                    "reste": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "string"
+                                    },
+                                    "client_id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "model": "Jupe et robe",
+                                    "description": "Je decrips le model",
+                                    "mesure": "lien de l'image",
+                                    "delais": "2022-02-02",
+                                    "total": 5000,
+                                    "reste": 2000,
+                                    "user_id": 1,
+                                    "client_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Exception"
+                    }
+                }
+            }
+        },
+        "/api/commandes/2": {
+            "get": {
+                "tags": [
+                    "commandes"
+                ],
+                "summary": "Obtenir une seul commande",
+                "description": "Obtenir une seul commande",
+                "operationId": "one_commande",
+                "responses": {
+                    "200": {
+                        "description": "Afficher une seul commande"
+                    },
+                    "404": {
+                        "description": "commande intouvable ou inexistante"
                     }
                 }
             }
